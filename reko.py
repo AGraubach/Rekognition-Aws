@@ -10,7 +10,6 @@ import io
 #         secret_key = row[1]
 
 def detect_labels(image_path):
-    # Insira suas credenciais da AWS aqui
     session = boto3.Session(
         profile_name='reko')    # Use o nome do perfil configurado no AWS CLI
     rekognition = session.client('rekognition')
@@ -45,7 +44,7 @@ def detect_labels(image_path):
                 draw.text((left+170, top - 30), label['Name'], fill='white', font=font)
     img.show()
 def main():
-    image_path = 'rural.jpg'  # Replace with your image path
+    image_path = 'rural.jpg'  # Atualmente puxando imagem local
     detect_labels(image_path)
 
 if __name__ == "__main__":
